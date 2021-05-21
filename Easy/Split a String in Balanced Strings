@@ -1,0 +1,35 @@
+Question : https://leetcode.com/problems/split-a-string-in-balanced-strings/
+
+Solution : 
+
+class Solution {
+public:
+    int balancedStringSplit(string s) {
+        string l,r;
+        bool check;
+        int count=0;
+        for(int i=0;i<s.length();i++)
+        {
+            check=false;
+            if(s[i]=='R')
+            {
+                r.push_back(s[i]);
+            }
+            else
+            {
+                l.push_back(s[i]);
+            }
+            while(!r.empty() && r.length()==l.length())
+            {
+                r.pop_back();
+                l.pop_back();
+                check=true;
+            }
+            if(check)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+};
