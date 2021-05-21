@@ -1,0 +1,16 @@
+Question : https://leetcode.com/problems/xor-operation-in-an-array/
+
+Solution : 
+
+class Solution {
+public:
+    int xorOperation(int n, int start) {
+        int output=start;
+        int limit=start+2*n;
+        for(int i=start+2;i<(start+2*n);i+=2)
+        {
+            output=output^i;
+        }
+        return output;
+    }
+};
