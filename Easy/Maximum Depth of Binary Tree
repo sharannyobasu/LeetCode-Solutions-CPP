@@ -1,0 +1,17 @@
+Question : https://leetcode.com/problems/maximum-depth-of-binary-tree/
+
+Solution : 
+
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(!root)
+        {
+            return 0;
+        }
+        int leftheight=maxDepth(root->left);
+        int rightheight=maxDepth(root->right);
+        int x=max(leftheight,rightheight);
+        return 1+x;
+    }
+};
