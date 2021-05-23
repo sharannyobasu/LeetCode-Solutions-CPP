@@ -1,0 +1,27 @@
+Question : https://leetcode.com/problems/truncate-sentence/
+
+Solution : 
+
+class Solution {
+public:
+    string truncateSentence(string s, int k) {
+        string output="";
+        int i=0;
+        int len=0;
+        while(i<k and len<s.length())
+        {
+            if(s[len]==' ' and i+1==k)
+            {
+                break;
+            }
+            if(s[len]==' ')
+            {
+                i++;
+            }
+            output+=s[len];
+            
+            len++;
+        }
+        return output;
+    }
+};
