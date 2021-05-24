@@ -1,0 +1,44 @@
+Question : https://leetcode.com/problems/rotate-list/
+
+Solution : 
+
+class Solution {
+public:
+
+                          
+    ListNode* rotateRight(ListNode* head, int k) {
+        
+        if(!head)
+        {
+            return NULL;
+        }
+        if(!head->next)
+        {
+            return head;
+        }
+        int count=0;
+        ListNode*tempo=head;
+        while(tempo)
+        {
+            count++;
+            tempo=tempo->next;
+        }
+        k=k%count;
+        while(k--)
+        {
+             if(!head)
+        {
+            return NULL;
+        }
+        ListNode*temp=head;
+        while(temp->next and temp->next->next)
+        {
+            temp=temp->next;
+        }
+        temp->next->next=head;
+        head=temp->next;
+        temp->next=NULL;
+        }
+        return head;
+    }
+};
