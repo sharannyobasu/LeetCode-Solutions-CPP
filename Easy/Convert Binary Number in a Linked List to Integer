@@ -1,0 +1,32 @@
+Question : https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/
+
+Solution : 
+
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        ListNode*curr=head;
+        ListNode*prev=NULL;
+        ListNode*nex=head;
+        while(curr)
+        {
+            nex=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=nex;
+        }
+        head=prev;
+        int power=0;
+        int result=0;
+        while(head)
+        {
+            if(head->val==1)
+            {
+                result+=pow(2,power);
+            }
+            power++;
+            head=head->next;
+        }
+        return result;
+    }
+};
