@@ -1,0 +1,33 @@
+Question : https://leetcode.com/problems/same-tree/
+
+Solution : 
+
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        bool leftr, rightr;
+        if(!p and !q)
+        {
+            return true;
+        }
+        else if(p and !q)
+        {
+            return false;
+        }
+        else if(!p and q)
+        {
+            return false;
+        }
+        
+        if(p->val==q->val)
+        {
+            leftr=isSameTree(p->left, q->left);
+            rightr=isSameTree(p->right, q->right);
+        }
+        else
+        {
+            return false;
+        }
+        return leftr and rightr;
+    }
+};
