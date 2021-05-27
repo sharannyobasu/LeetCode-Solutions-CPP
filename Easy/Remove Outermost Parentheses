@@ -1,0 +1,37 @@
+Question : https://leetcode.com/problems/remove-outermost-parentheses/
+
+Solution : 
+
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        string result="";
+        stack<char>stack;
+        int flag=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(stack.empty())
+            {
+                stack.push(s[i]);
+            }
+            else if(!stack.empty() and s[i]=='(')
+            {
+                result+=s[i];
+                flag++;
+            }
+            else if(!stack.empty() and s[i]==')')
+            {
+                if(flag>0)
+                {
+                    result+=s[i];
+                    flag--;
+                }
+                else
+                {
+                    stack.pop();
+                }
+            }
+        }
+        return result;
+    }
+};
