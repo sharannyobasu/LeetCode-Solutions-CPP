@@ -1,0 +1,27 @@
+Question :  https://leetcode.com/problems/determine-if-string-halves-are-alike/submissions/
+
+Solution :  
+
+class Solution {
+public:
+    bool halvesAreAlike(string s) {
+        int size=s.length();
+        int first=0;
+        
+        for(int i=0;i<size/2;i++)
+        {
+            if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u' || s[i]=='A' || s[i]=='E' || s[i]=='I'|| s[i]=='O'|| s[i]=='U')
+            {
+                first++;
+            }
+        }
+        for(int i=size/2;i<size;i++)
+        {
+            if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u' || s[i]=='A' || s[i]=='E' || s[i]=='I'|| s[i]=='O'|| s[i]=='U')
+            {
+                first--;
+            }
+        }
+        return first==0;
+    }
+};
