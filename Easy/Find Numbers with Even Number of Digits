@@ -1,0 +1,30 @@
+  Question : https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
+  
+  Solution : 
+  
+  class Solution {
+public:
+    int digits(int num)
+    {
+        int count=0;
+        while(num)
+        {
+            count++;
+            num=num/10;
+        }
+        if(count%2==0)
+        {
+            return 1;
+        }
+        return 0;
+    }
+    
+    int findNumbers(vector<int>& nums) {
+        int count=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            count+=digits(nums[i]);
+        }
+        return count;
+    }
+};
