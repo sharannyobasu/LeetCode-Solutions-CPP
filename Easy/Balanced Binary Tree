@@ -1,0 +1,30 @@
+Question : https://leetcode.com/problems/balanced-binary-tree/
+
+Solution : 
+
+class Solution {
+public:
+    int height(TreeNode*root)
+    {
+        if(!root)
+        {
+            return 0;
+        }
+        return 1+max(height(root->left), height(root->right));
+    }
+    
+    bool isBalanced(TreeNode* root) {
+        if(!root)
+        {
+            return 1;
+        }
+        int leftheight=height(root->left);
+        int rightheight=height(root->right);
+        if(abs(rightheight-leftheight)<=1 and isBalanced(root->left) and isBalanced(root->right))
+        {
+            return 1;
+        }
+        return 0;
+        
+    }
+};
