@@ -1,0 +1,28 @@
+Question : https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+
+Solution : 
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(!root)
+        {
+            return NULL;
+        }
+        if(root==p or root==q)
+        {
+            return root;
+        }
+        TreeNode*left_ans=lowestCommonAncestor(root->left, p,q);
+        TreeNode*right_ans=lowestCommonAncestor(root->right, p,q);
+        if(left_ans and right_ans)
+        {
+            return root;
+        }
+        if(left_ans)
+        {
+            return left_ans;
+        }
+        return right_ans;
+    }
+};
