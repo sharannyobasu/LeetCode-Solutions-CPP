@@ -1,3 +1,5 @@
+//Uses concept of graph data structure, here I have used BFS approach
+
 class Solution {
 public:
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
